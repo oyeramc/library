@@ -1,0 +1,14 @@
+ktor:
+  application:
+    modules:
+      - com.oyera.ApplicationKt.module
+  deployment:
+    port: 8080
+    watch:
+      - classes
+      - resources
+  development: true
+postgres:
+  url: "jdbc:postgresql://ep-holy-recipe-a4kkzgeg.us-east-1.aws.neon.tech/neondb?sslmode=require"
+  user: neondb_owner
+  password: DGCn3V6rBlWo
