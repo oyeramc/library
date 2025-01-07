@@ -1,5 +1,7 @@
 package com.oyera
 
+import com.oyera.https.user.userRouting
+import com.oyera.plugins.*
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -14,4 +16,5 @@ fun Application.module() {
     configureDatabases()
     configureFrameworks()
     configureRouting()
+
 }

@@ -1,4 +1,4 @@
-package com.oyera.domain.entities.library
+package com.oyera.domain.entities
 
 import kotlinx.serialization.Serializable
 

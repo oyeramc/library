@@ -2,9 +2,5 @@ package com.oyera.domain.value.objects
 
 import java.util.UUID
 
-class Id() {
-    companion object {
-        val newId: String = UUID.randomUUID().toString()
-    }
-
-}
+@JvmInline
+value class Id(val newId: String = UUID.randomUUID().toString())
