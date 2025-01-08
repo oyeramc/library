@@ -1,8 +1,8 @@
-package com.oyera.https.user
+package com.oyera.application.services.user
 
 import com.oyera.domain.entities.User
-import com.oyera.domain.repository.user.UserRepository
-import com.oyera.domain.repository.user.UserRepositoryMemory
+import com.oyera.domain.repository.UserRepository
+import com.oyera.infra.database.dto.UserRequest
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
@@ -11,7 +11,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Application.userRouting() {
-    val repo: UserRepository = UserRepository()
+    val repo = UserRepository()
 
     routing {
 
@@ -21,10 +21,16 @@ fun Application.userRouting() {
             }
 
             post {
-                val user = call.receive<User>()
+                val req = call.receive<UserRequest>()
+                val newUser = User(
+                    firstName = req.firstName,
+                    lastName = req.lastName,
+                    email = req.email,
+                    password = req.password
+                )
 
-                repo.save(user)
-                call.respond(HttpStatusCode.Created, user)
+                repo.save(newUser)
+                call.respond(HttpStatusCode.Created, newUser)
             }
 
 
@@ -36,7 +42,7 @@ fun Application.userRouting() {
 
                 delete {
                     val id = call.parameters["id"]!!
-                    repo.delete(id) ?: throw NotFoundException("User not found")
+                    repo.delete(id)
                     call.respond(HttpStatusCode.NoContent)
                 }
 

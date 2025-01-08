@@ -1,0 +1,37 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Closed Library",
+    "description": "A library to any book and make your review",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "description": "Return all users from the database",
+        "responses": {
+          "200": {
+            "description": "A list of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [{
+                    "id": "1234-5678",
+                    "name": "John Doe",
+                    "email": "john@example.com"
+                  }]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

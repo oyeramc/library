@@ -1,4 +1,4 @@
-package com.oyera.domain.repository.user
+package com.oyera.domain.repository
 
 import com.oyera.domain.entities.User
 import com.oyera.domain.factories.database.DatabaseFactory
@@ -21,9 +21,5 @@ class UserRepository : Repository<User> {
 
     override suspend fun save(objectToBeSaved: User) {
         UserDao().save(objectToBeSaved)
-    }
-
-    companion object {
-
     }
 }

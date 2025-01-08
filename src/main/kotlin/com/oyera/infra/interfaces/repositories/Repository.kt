@@ -1,11 +1,12 @@
 package com.oyera.infra.interfaces.repositories
 
-interface Repository<T> {
-    suspend fun findAll(): List<T>
 
-    suspend fun save(objectToBeSaved: T)
+interface Repository<Entity> {
+    suspend fun findAll(): List<Entity>
 
-    suspend fun findById(id: String): T?
+    suspend fun save(objectToBeSaved: Entity)
+
+    suspend fun findById(id: String): Entity?
 
     suspend fun delete(id: String)
 

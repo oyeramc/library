@@ -19,11 +19,11 @@ class UserDao {
         UsersTable.selectAll().map {
             User(
                 id = it[id],
-                userType = it[userType],
-                email = it[email],
                 firstName = it[firstName],
                 lastName = it[lastName],
+                email = it[email],
                 password = it[password],
+                userType = it[userType],
             )
         }
     }
