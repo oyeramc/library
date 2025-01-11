@@ -1,4 +1,4 @@
-package com.oyera.infra.database.dto
+package com.oyera.interfaces.dto
 
 import kotlinx.serialization.Serializable
 

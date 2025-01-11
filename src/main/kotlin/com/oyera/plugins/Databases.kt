@@ -1,7 +1,7 @@
 package com.oyera.plugins
 
 
-import com.oyera.domain.factories.database.DatabaseFactory
+import com.oyera.infrastructure.database.DatabaseFactory
 import io.ktor.server.application.*
 
 fun Application.configureDatabases() {

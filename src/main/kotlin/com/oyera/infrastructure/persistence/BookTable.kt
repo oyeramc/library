@@ -1,6 +1,5 @@
-package com.oyera.infra.tables
+package com.oyera.infrastructure.persistence
 
-import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Table
 
 object BookTable : Table("books") {

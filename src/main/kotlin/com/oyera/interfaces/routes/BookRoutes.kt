@@ -1,4 +1,4 @@
-package com.oyera.application.services.book
+package com.oyera.interfaces.routes
 
 import io.ktor.server.application.*
 import io.ktor.server.routing.*

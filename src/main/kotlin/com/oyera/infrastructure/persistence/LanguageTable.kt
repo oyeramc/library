@@ -1,4 +1,4 @@
-package com.oyera.infra.tables
+package com.oyera.infrastructure.persistence
 
 import com.oyera.domain.value.objects.Languages
 import org.jetbrains.exposed.sql.Table

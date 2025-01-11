@@ -1,6 +1,6 @@
 package com.oyera.plugins
 
-import com.oyera.application.services.user.userRouting
+import com.oyera.interfaces.routes.userRouting
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*

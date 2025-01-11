@@ -1,15 +1,11 @@
-package com.oyera.domain.repository.memory
+package com.oyera.infrastructure.repositories.`in`.memory
 
 import com.oyera.domain.entities.User
 import com.oyera.domain.entities.UserType
-import com.oyera.infra.interfaces.repositories.Repository
-import com.oyera.domain.repository.memory.UserRepositoryMemory
+import com.oyera.infrastructure.repositories.Repository
+
 
 class UserRepositoryMemory : Repository<User> {
-    init {
-        newUser.activeBooks.add(BookRepositoryMemory.exampleBook)
-    }
-
     init {
         _instance.add(newUser)
     }
@@ -22,11 +18,12 @@ class UserRepositoryMemory : Repository<User> {
         return _instance.find { it.id == id }
     }
 
-    override suspend fun save(objectToBeSaved: User) {
-        _instance.add(objectToBeSaved)
+    override suspend fun save(input: User): User {
+        _instance.add(input)
+        return input
     }
 
-    override suspend fun delete(id: String) {
+    override suspend fun deleteById(id: String) {
         _instance.removeIf { it.id == id }
     }
 

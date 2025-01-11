@@ -1,5 +1,6 @@
 package com.oyera.domain.entities
 
+import com.oyera.domain.value.objects.Email
 import com.oyera.domain.value.objects.Id
 import com.oyera.domain.value.objects.Password.hashPassword
 import kotlinx.serialization.Serializable
@@ -13,15 +14,16 @@ data class User(
     var email: String,
     var password: String,
     var userType: UserType = UserType.COMMON,
-    val loanHistory: MutableList<Loan>,
-    val bookHistory: MutableList<Book>,
-    val activeBooks: MutableList<Book>
+    val loanHistory: MutableList<Loan> = mutableListOf<Loan>(),
+    val bookHistory: MutableList<Book> = mutableListOf<Book>(),
 ) {
-
     init {
+
+
         this.firstName = this.firstName.formatName()
-        this.lastName =  this.lastName.formatName()
-        this.password =  this.password.hashPassword()
+        this.lastName = this.lastName.formatName()
+        this.password = this.password.hashPassword()
+        this.email = Email(this.email).toString()
     }
 
     companion object {
@@ -31,6 +33,7 @@ data class User(
                 .replaceFirstChar {
                     it.titlecase(Locale.getDefault())
                 }
-    }}
+        }
+    }
 
 }

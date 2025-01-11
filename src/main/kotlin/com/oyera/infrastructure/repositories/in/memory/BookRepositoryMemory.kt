@@ -1,11 +1,11 @@
-package com.oyera.domain.repository.memory
+package com.oyera.infrastructure.repositories.`in`.memory
 
 import com.oyera.domain.entities.Book
 import com.oyera.domain.value.objects.GenreTypes
-import com.oyera.infra.interfaces.repositories.Repository
+import com.oyera.infrastructure.repositories.Repository
 import kotlinx.datetime.LocalDate
 
-class BookRepositoryMemory: Repository<Book> {
+class BookRepositoryMemory : Repository<Book> {
     init {
         _instance.add(exampleBook)
     }
@@ -14,15 +14,15 @@ class BookRepositoryMemory: Repository<Book> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun delete(id: String) {
+    override suspend fun deleteById(id: String) {
         TODO("Not yet implemented")
     }
 
-    override suspend fun findById(id: String): Book? {
+    override suspend fun findById(id: String): Book {
         TODO("Not yet implemented")
     }
 
-    override suspend fun save(objectToBeSaved: Book) {
+    override suspend fun save(input: Book): Book {
         TODO("Not yet implemented")
     }
 
@@ -34,6 +34,10 @@ class BookRepositoryMemory: Repository<Book> {
             author = "Fiodor Dostoevsky",
             genres = listOf(GenreTypes.NOVEL, GenreTypes.DETECTIVE),
             releaseDate = LocalDate(year = 1866, monthNumber = 12, dayOfMonth = 7),
+            isbn = null,
+            quantity = 12,
+            isAvailable = true,
+            isActiveInUserAccount = true
         )
     }
 

@@ -1,10 +1,10 @@
-package com.oyera.domain.factories.database
+package com.oyera.infrastructure.database
 
-import com.oyera.domain.entities.user.UsersTable
-import com.oyera.infra.tables.BookTable
-import com.oyera.infra.tables.LanguageTable
-import com.oyera.infra.tables.UserTypeTable
-import io.ktor.server.engine.*
+import com.oyera.infrastructure.persistence.UsersTable
+import com.oyera.infrastructure.persistence.BookTable
+import com.oyera.infrastructure.persistence.LanguageTable
+import com.oyera.infrastructure.persistence.UserTypeTable
+import io.ktor.server.engine.applicationEnvironment
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -31,7 +31,7 @@ object DatabaseFactory {
         }
     }
 
-    private fun pgConnect() = Database.connect(
+    private fun pgConnect() = Database.Companion.connect(
         url = url, driver = driver, user = user, password = password
     )
 

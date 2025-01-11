@@ -1,5 +1,4 @@
-package com.oyera.domain.entities.user
-
+package com.oyera.infrastructure.persistence
 
 import com.oyera.domain.entities.UserType
 import org.jetbrains.exposed.sql.Table
